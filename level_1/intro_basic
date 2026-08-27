@@ -1,0 +1,64 @@
+Introduction to networkign and basic concpets
+
+
+-->     whats networking?
+
+im short, networking is the process of allowing 2 computeres and other devices to communicate with each other!
+
+imagine we have 2 computers: computer A and computer B
+
+CA wants to send something to CB --> this is networking!
+
+the data that could be sent is:
+- a webpage
+- a file
+- a message
+- a video
+- a DNS request
+- an SSH connection
+- a database query
+- literally anything computers need to axchange!
+
+-->     whats a NetWork?
+
+a network is simaply a gourp of computers that connected in a way that allows them to communicate
+
+for example:
+
+your home wifi
+
+                        wifi router
+            laptop          tv          phone
+
+your laptop can communicate with tv and phone. same is true for evert device that shares the same network
+
+-->     what does connection mean?
+
+laptop connected to the router
+
+they could be connected through:
+
+ethernet:
+    laptop - cable - switch
+
+wifi:
+    laptop - wifi - router
+
+
+-->     whats a host?
+
+A host is a device connected to the network that can communicate using the network!
+
+
+                        wifi router
+            laptop          tv          phone
+
+laptop, tv and phone are all considered hosts because the three are connected to the network!
+
+anything that participate in a netwrok can be called a host!
+
+- a webserver can be called a host
+- cloud can be called a host
+- virtual machine can be called a host
+- your computer running linux can be called a host!
+

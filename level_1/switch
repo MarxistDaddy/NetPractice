@@ -1,0 +1,88 @@
+switch:
+
+----
+why did we create the switch in the first place?
+we created it because things get so messy when we try to connect a group of computers via cables
+its nearly impossible to keep the whole network neatly organized and easily tracked when we connect
+a group of computers with each others
+--> thats when switches come in!
+
+switches help organize connecting a gourp of computers by provviding a central unit where all computers are connected to 
+instead of having to connect computers with each other
+---
+
+how does the switch work?
+
+back before we created the switch, we had something called: Hub traffic
+
+say that we have 4 computers connected with other via the Hub traffic: c1, c2, c3, c4
+
+hub traffic is stupid, when you try to send a message from c1 to c2
+the message will go from c1 to hub traffic
+you expect the hub traffic to send the message to c2
+but thtas not the case!
+hub traffic sends the message received from c1 to all the computers that are connected to it
+it will send it to c2, c3, c4
+
+--> this is a bad thing!
+
+when you send a message to all computers that are connected to hub traffic, this means that all the computer can see the data! 
+
+hub traffic doesnt care about the privacey and securety of the data!
+
+---------
+hence switch was made!
+
+when we have 4 computers connected to the same switch
+and you want to send a message from c1 to c2
+the message will only be sent to c2, and c2 will be able to see it
+
+
+how does the switch work?
+
+switch is just a device with multiple ports!
+it does something like this:
+
+on port 1, thats where the c1 exists
+on port 2, thats where the c2 exists
+on port 3, thats where the c3 exists
+on port 4, thats where the c4 exists
+
+the switch doesnt know that c1 is c1
+it recognize c1 by its mac address
+
+------------------------------------
+whats a mac address??
+media access controll address
+
+ip address?
+internet protocol address
+
+
+say that we have a switch that has 2 devices connected to it
+
+
+                                switch
+            
+c1                                                  c2
+IP: 192.168.1.10                                    IP: 192.168.1.20
+MAC: AA:AA:AA                                       MAC: BB:BB:BB
+
+
+c1 wants to sends data to c2
+since c1 and c2 are connected to the same network, meaning connecred to the same local switch!
+c1 only needs c2's Mac Address
+
+
+
+
+
+
+
+
+
+
+
+
+
+

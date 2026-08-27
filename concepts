@@ -1,0 +1,13 @@
+-->     basic concepts:
+
+
+the diagram:
+my_pc -> switch -> router -> firewall -> modem -> att fiber -> internt
+
+
+from my_pc all the att_fiber 
+this is called LAN: my local area network!
+
+
+the internet:
+is called WAN: wide area network!
