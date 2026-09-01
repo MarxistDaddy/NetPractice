@@ -1,0 +1,294 @@
+OSI model:  OSI == opensystem internconnection model!
+
+
+
+the 7 layres of networking 
+
+
+-----------------------------
+Layer 1: Physical (Bottom)
+Layer 2: Data Link
+Layer 3: Network
+Layer 4: Transport
+Layer 5: Session
+Layer 6: Presentation
+Layer 7: Application (Top)
+-----------------------------
+
+
+==>     layer 1:    the physical layer!
+
+this is the lowest level, responsible for transmitting raw bits 0, 1 over physical meduim
+
+it has no understanding of packets heaaders, IP addesses, Mac addresse or the content of the data!
+
+this layer is made of:
+
+copper cables
+wifi
+fiber cables
+hardware devices: ethernet hubs, network interface cards, modems and so on...
+
+--> this layer doesnt know where the data is going
+--> all it can see if the a s tream of data
+--> it just cables and that is!!!
+
+-----------------------------------------------------------------------------------------------
+
+==>     level 2: the data link layer!
+
+layer 1: just cables to move raw bits!
+
+layer 2 takes those bits, structure them into discrete chunks called frames, and adds physical mac addresses to make sure that the data reach the targeted device without needing to rout over the global internet
+
+==> the switch operates primarly at level 2, its job essentially is:
+    "i have a frame for MAC x:x:x:, which port should i send it!"
+
+==> in this layer, we atake the raw data from the physical layer and organize it into frames
+==> look below for frames!
+
+layer 2 is split into 2 parts:
+    - media access address: MAC
+
+
+takes the bits from level 1, and addds actual structure to it!
+it organize the 1s and 0s into frames
+
+frames:
+    wrapping our data with imporatnt addressing information!
+    so it knows where to go on the local network 
+    this is where we add the mac addresses
+    the data link layer uses this mac address ot make sure that our data reaches it targeted
+    destination!!
+
+how does framing work?
+    1- we take the data, 01010010101010101001010101
+    2- at the front we add the sender and recevier mac_address: x:x:x:x | x:x:x:x  0101001_data_010
+    3- at the back, we add error detection bits, called the frame check sequence!
+    4- frame check seuqnce verfiy that the data wasnt corrupoted, if it was, the drame is thrown out
+
+how is this layer important?
+    in the old days, we had hub instead of switches
+    hub used to send the frame to all the devices that are connected to it
+    so switch, in this layer also handles the data/frames transmitting in the LAN
+    hence the name, media access control
+    --> the data link layer has protocols like: CSMA/CD
+    this protocol detcts these clliions and tell devices to wait random amount of time before trying again
+
+
+-----------------------------------------------------------------------------------------------
+
+==>     level 3: the network layer!
+
+it scrucial for routing data across different networks!
+
+if you wanna send data accross the internet to server in another country, MAC addresses are useless
+thats where the network layer comes in
+
+this layer is responsible for logical addrresing and routing
+this is where the IP addresses come into play!
+
+mac == LAN
+IP address == lets you communcatine with any this layer is responsible for logical addrresing and routing
+this is where the IP addresses come into play!
+
+mac == LAN
+IP address == lets you communcatine with any device anywhere on the internet
+
+
+layer 2 == communication between LAN
+layer 3 == handles communcation between different networks
+
+every device has an IP address!
+the network layer, takes your data and wrapts it in a packet!
+
+this packet includes:
+    your pc IP address
+    the destination IP address -> the server its trying to reach
+    ==> then figures out the best path to get that packet from your LAN to the destination network
+
+--> this is where routers come in
+routers sit between networks and make intelligenet decision s about where to send packets
+
+when a packet reaches a router, the routers check which path leads to towards that destination
+and forwards the packet towards the next router
+this process repeats across multiple routers untilll the packet reaches its destination
+
+--> this is where we need to learn about subnet masks!
+subnet masks determines which part of the ip address determines the network
+and which part of the specific device
+--> this is also where you should learn how routers use protocols like RIP, OSPF, and BGP
+these protocols are used by routers to get the best routing path and build those routing tables
+
+they can explain why your data might take a different path across the internet depending on network
+congestion or link failure
+
+==> another thing about the networking layer is that it handles data fragmentation
+
+if a packet is too large to be sent in one go
+it breaks down the packet into small parts, and get reessemble at the destination end
+
+
+-----------------------------------------------------------------------------------------------
+
+BEFORE WE GET TO LEVEL 4, we need to understand that the goal of level 1, 2 and 3
+is to move data, they dont care about data arriving correctly and intact
+
+level 4: provies reliable data delivery, flow control, and error correction
+
+
+==>     level 4: the transport layer
+
+layer 3 is about explain how to get a packet to its correct destintion
+layer 4 is about data getting delivered reliably
+
+the network layer is connectionless, it just sends data and hopes it arrives
+theres no guqrteened packets will arrive in order or even arrive at all
+this a problem that layer 4 solves!
+
+
+==> sending a packet over the internet isnt enought!
+==> we need reliability!
+==> this layer is responsible for end to end communication, meaning reliability! making sure your data actually arives intact!
+
+==> this is where TCP and UDP live
+
+1- TCP:
+TCP is what the web is built on
+load a web page
+download anything over the internet
+send an email
+
+--> before sending data
+TCP establishes a connection between your computer and the server
+this is called the three way handshake
+
+a- your computer sayas, i want to connect
+b- the server says "okay im ready"
+c- your computer says great, lets go
+
+
+only then does the data transmition begins
+
+==> 
+TCP breaks your data into segements
+each segment gets a sequence number
+so the receiving computers knows what order to reassemble them in
+--> as segments arrive, the receviers sends back the the order in which it receives the segments
+ kinda says: i got segment 1, s2, s3
+
+ if a segment doesnt arrive, or it arrives corrupted, the receiver doesnt send an aknolegment
+the sender automatically retransmist that missing/corrupted segment
+
+thats reliability
+
+
+2- UDP:
+UDP just fires the data out without establishing a connection
+without checkign if it arrive, or the order
+UDP is useful for its speed
+useful for video streaming, gaming, voice calls
+few dropped packets dont matter, you want to keep playing, watchign or calling
+
+in this layer, you need to be aware of the port numbers
+so in this layer (transport layer) can identify the specific application
+ports let multiple application use the same computer without interfering with each otehr
+
+the transport layer also handles flow control:
+    1- if the sender sends data faster than the receiver can handle
+    the receviers tells the sender to slow the fuck down 
+    this prevents overwhelming slower devices
+
+    2- it also handles congestion control
+    detecting when the internet if overloaded and reducing the tramsission speed to prevent making it worse
+
+
+
+
+
+-----------------------------------------------------------------------------------------------
+
+
+while layer 3 gets a packet to the correct destination using IP address
+layer 4 uses port numbers to deliver the data to the exact applicaiton running on that computer 
+
+e,g:
+directing incoming web traffic specifically to your broweser 443 port rather than discord or spotify
+
+
+whats a port?
+    look below!
+
+layer 4 does 2 things:
+
+1- uses ports to deliver the data to the correct applicaiton
+2- uses transport protocol such as TCP or UDP
+
+
+Your PC receives data
+        │
+        ▼
+IP address: 192.168.1.10
+        │
+        │ "This packet is for this host"
+        ▼
+Port: 443
+        │
+        │ "This data is for this service/application"
+        ▼
+Application
+
+
+IP address: which host?
+Port:       which application/service
+
+however layer 4 doesnt choose the best protocol, the applicaiton or operating system is designed to use a particular protocol!
+
+
+
+                                    -----------------
+
+using an example that includes the 4 layers so far:
+
+1- 
+your computer opens a website that hosted on another server:
+        https://example.com
+
+2- your computer:
+    IP: 192.168.1.10
+    MAC: AA:AA:AA:AA:AA:AA
+
+3- the server:
+    IP: 93.184.216.34
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

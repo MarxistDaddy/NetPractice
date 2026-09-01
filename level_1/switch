@@ -68,10 +68,63 @@ c1                                                  c2
 IP: 192.168.1.10                                    IP: 192.168.1.20
 MAC: AA:AA:AA                                       MAC: BB:BB:BB
 
+--> Mac Address:
 
 c1 wants to sends data to c2
 since c1 and c2 are connected to the same network, meaning connecred to the same local switch!
 c1 only needs c2's Mac Address
+
+the switch looks at the mac address of c2: bb:bb:bb and forward the frame to c2's port
+
+--> Ip Address:
+
+
+Your PC                 Router                  Google
+192.168.1.10            192.168.1.1            142.250.x.x
+    │                       │                       │
+    └──── Switch ───────────┘──── Internet ─────────┘
+
+
+your pc wants to seach google, meaning connecting to something that doesnt exists in our local network
+--> basically connecting to something over the internet!
+
+when we try to connect to something over the internet, the pc recognize that google doesnt exists in our local network
+so it sends the frame to its router/default gateway
+
+--------------------------------------------------------
+
+whats mac address?
+
+no 2 decives anywhere on the word have the same mac address, same goes for ip address
+
+mac address is made up of 6 bytes in heca decimal numbers
+they usually come in this format for:
+
+mac and loonix:
+44:54:01:8f
+
+windows:
+44-54-01-8f
+
+
+==> mac address are peremantn, meaning they dont change at all!!
+
+the purpose of the mac address is to indentify the device on a netwrok interface!
+
+whats a network interface?
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
