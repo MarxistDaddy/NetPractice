@@ -12,6 +12,154 @@ objective of this exercise:
 IPv4 Address Syntax & Constraints:
     understand valid syntax and constrain
 
+=====================================================================
+
+whats an ip?
+
+
+==>     whats an IP address?
+internet protocol address
+for a device to communicate with any other device, it needs an IP address
+
+every IPv4 address comes in this format:
+a.b.c.d
+
+A, B, C, D are called octal!
+the value of each octal go from 0 to 255
+
+
+
+==>     rules of and roles of IP addresses:
+tho we cant use all the address within this range of 0-255.0-255.0-255.0-255
+some addresses are resolved to 
+
+1- NETWORK ADDRESS ID: 
+The very first IP in a subnet range (where all host bits are 0). It identifies the network itself.
+        Example: In 192.168.1.0/24, 192.168.1.0 is the network address.
+
+2- BROADCAST ADDRESS:
+the very last IP address in a subnet range
+192.168.1.255
+    this is used to send data to every device on that network segment
+
+
+3- Usable Host Addresses:
+the only IP address between ID and BROADCAST: that can be assigned to devices
+
+
+==>     classes of IP addresses
+
+IP addreses are split into 4 parts:
+
+class A
+class B
+class C
+class D
+
+
+class A:
+
+fom 1-126
+
+
+==>     public vs private IP addresses:
+IP addresses are split into public and private
+
+public == routable on the global internet
+private == used inside local networks!
+
+
+==>     subnetting:
+
+192.168.1.10
+
+subnet tells us which part of the IP is the host and which part is the network!
+network == your neighboerhood 
+host == your house address
+
+
+When an octet in the subnet mask is 255, that octet belongs ENTIRELY to the Network ID.
+When an octet in the subnet mask is 0, that octet belongs ENTIRELY to the Host portion.
+
+
+IP Address:     192.168.1.50    ← This is the FULL IP address
+Subnet Mask:    255.255.255.0   ← This tells us what's network vs host
+
+Network ID:     192.168.1.0     ← Network part
+Host portion:   .50             ← Host part (the "rest" of the IP)
+
+
+==> in short:
+
+
+IP address = Network part + Host part
+Mask 255 → that octet belongs to the network
+Mask 0 → that octet belongs to the host
+/24 = last octet is for hosts
+
+for /24 network | e.g., 192.168.1.0/24
+
+
+192.168.1.0	Network ID (all host bits = 0)	    RESERVED
+192.168.1.1 → 192.168.1.254	Valid hosts	        Can use
+192.168.1.255	Broadcast (all host bits = 1)	RESERVED
+
+
+why do we .0 for the network in /24?
+The .0 doesn't "belong" to the network in the way the first 3 octets do.
+
+
+a network here is a group of devices that talk to each other directly without having to go throug a router
+
+┌─────────────────────────────────────┐
+│         NETWORK: 192.168.1.0/24     │
+│                                     │
+│   ┌──────┐      ┌──────┐           │
+│   │ PC A  │──────│ PC B  │          │
+│   │.1     │      │.2     │          │
+│   └──────┘      └──────┘           │
+│                                     │
+│   ┌──────┐      ┌──────┐           │
+│   │ PC C  │──────│ PC D  │          │
+│   │.3     │      │.4     │          │
+│   └──────┘      └──────┘           │
+│                                     │
+│   ALL can talk directly!            │
+└─────────────────────────────────────┘
+
+==> these 4 computers in this network can talk to each other directly, without having to go to the router
+
+Network	A neighborhood or street
+Network ID	The street name (e.g., "Main Street")
+Hosts	The house numbers (1, 2, 3, 4...)
+Broadcast	A message to everyone on the street
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

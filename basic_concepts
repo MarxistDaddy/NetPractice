@@ -1,0 +1,388 @@
+I- network:
+
+its a collection of computers connected with each other
+either throu a cable or through wireless
+
+cable == wired connection
+wifi == wireless connection
+
+why do we use a network
+
+1- sharing hardware:
+ex: say that we havea company, and there are 4 emplyess there
+if these emplyess arent connected to the same network, they would have to have a printer for each one of them
+because they cant share one printer
+
+==> being connected to the same network, will allow you to share the printer, because its connected to the same network that all the 4 emplyees are connected to!
+
+
+
+2- sharind dtaa
+ex; say the the same 4 emplyess again, arent connected to the same network!
+and they are working on the same project, where each emplyee is tasked with a specific part of the roject
+
+the only way to share their work is by using a usb to share their work
+
+==> being on the same network, will allow them to share their work without any trouble
+they can all work on the same folder, 
+
+
+
+
+3- data protection
+to protect sensitive data from losing it, we will have to save a copy in the USB, and disk!
+
+if we have a network, we can set up a server: (centralized location)
+and connect to it through the network
+you can then upload and download your data anytime you want!!
+
+==> provide an actual example of how the network actually work? to illisutrate the 3 pionts!
+
+==================================================================================================
+
+II- network componenet and type of cables:
+
+1- end devices:
+could be: computers, phones, printers anything type of device thats connected to the network!
+
+
+2- network media:
+
+the media used to connect these devices with each other!
+
+==>     a- cables: wired connection
+copper cables and fiber optic cables
+
+a.1 - copper cable:
+outer layer: black one to pretocet from water
+copper mesh: to protect the cable from any intereference
+isolation: 
+copper wire: that sends the signals
+--> this oen isnt used anymore!
+
+a.2 - tiwsted cable:
+CAT 5:      100mb/s
+
+CAT 5e:     1000mb/s
+
+CAT 6:      10gb/s
+==> maximum range of this cables have to be within range of 100m
+==> if we want a longer cable, we have to use fiber optic
+                --------
+fiber optic:
+uses light ray
+cable made of glass, that can bend
+
+
+==>     b- wifi: wireless conecction
+just wifi!!
+
+
+3- network interface
+
+computers and devices only understand 1s and 0s
+cables only understand signals
+
+for ex:
+
+    when sending data from computer to another compter they will have to go through a cables
+    say that we are sending data over a cable table
+    copper doesnt understand 1s and 0s
+
+    so here where the interface steps in:
+
+    interface will take data form computer A
+    transform it to signals, so it can travel through the cable!
+    and another interface on the other end of computer B
+    till receive the signals and convert it to 1s and 0s
+
+    --> same thing for fiber optic, the interface will convert the data to ligh signals
+
+    --> wifi: the interface will convert it to radio frequencies
+
+
+4- network protocol:
+
+protocol is a set of rules that all the devices will agree upon in the same network so that they can understand each other! 
+
+think of it like the languge that the devices in the same network use it to communicate between each other  
+
+==================================================================================================
+
+Network topologies:
+
+topology: layout of the network | chakl takhtiti dyal network
+this is what we use to decide how the devices will be connected, what shapes and what architecture
+
+this is useful, it will help you understand how the connection will be conduceted physicaly between devices
+
+type of tolopologies:
+
+1- Bus topology:
+
+you have a 
+
+═════════════════════════════════════════════════════════════════════
+                              MAIN CABLE (BUS)
+═════════════════════════════════════════════════════════════════════
+    │               │               │               │               │
+    │               │               │               │               │
+    │               │               │               │               │
+┌───┴───┐       ┌───┴───┐       ┌───┴───┐       ┌───┴───┐       ┌───┴───┐
+│       │       │       │       │       │       │       │       │       │
+│ PC A  │       │ PC B  │       │ PC C  │       │ PC D  │       │SERVER │
+│       │       │       │       │       │       │       │       │       │
+└───────┘       └───────┘       └───────┘       └───────┘       └───────┘
+   .1              .2              .3              .4              .5
+
+         ALL devices share the SAME cable (the "bus")
+         ALL devices see ALL traffic (broadcast domain)
+
+
+==> we you send data from computer A, the main cable will send it to all PCs and the server
+==> but only the targeted Pc, will accept the data!
+==> Mac Address will be used to see which PC is the target
+
+==> downsides of this device:
+   1- since theres only one cable thats shared between multiple devices, the cable can only tranmist so much data
+   this means that will get overloaded, and the tramistion of data will be delayed as other computer have to wait for the previous data to get transmitted 
+
+    2- having also a single cable, means taht data can get collided if they 2 computers fromm both ends send data at the same time
+
+    3- low performance, multiple devices == high collisios and low signals
+    
+    4- single cable == not safe, if the cable fails all comuters will fail
+
+    5- all computers can read the data, so less ecurity
+
+
+
+2- ring topology:
+
+came as a solution to the single cable that results in collision!
+
+                    ┌─────────────┐
+                    │             │
+              ┌─────┤   SERVER    ├─────┐
+              │     │             │     │
+              │     └─────────────┘     │
+              │                         │
+              │                         │
+              ▼                         ▼
+        ┌───────────┐             ┌───────────┐
+        │           │             │           │
+        │   PC A    │─────────────│   PC B    │
+        │           │             │           │
+        └───────────┘             └───────────┘
+              ▲                         ▲
+              │                         │
+              │                         │
+              │     ┌─────────────┐     │
+              └─────┤   PRINTER   ├─────┘
+                    │             │
+                    └─────────────┘
+
+
+==> same problem!
+the data goes in a cirulcular way, this will reuslt in data being read by every computer
+also if a cable fails, the whole network collapeses
+
+
+3- mesh topology:
+          ┌──────────┐
+           │          │
+      ┌────│  PC A    │────┐
+      │    │          │    │
+      │    └──────────┘    │
+      │         │          │
+      │         │          │
+      │         │          │
+      ▼         ▼          ▼
+   ┌──────────┐  ┌──────────┐
+   │          │  │          │
+   │  PC B    │──│  PC C    │
+   │          │  │          │
+   └──────────┘  └──────────┘
+
+
+simimlar to ring topology, but resistant to collpasing whena single cables fails!
+depends on point-t0-pont linkg
+every device connects to the other device through a single cable
+we dont have a single cable that connects all the devices at once
+
+mesh is colleciton of cables that connect every device witht he oether one
+
+higher secutrity, the data wont be read by every computer
+networing collapsing wont happen
+low traffic, no collision will ocuur
+
+BUT...
+
+it costs a lot of moeny, as you need so many cables to connect every computer
+more cables == more network interfaces
+==> this makes the troubleshooting so difficult!
+
+
+
+4- start topology:
+
+all devices are connected to a central device a switch or a hub
+
+         ┌──────────┐
+         │  SWITCH  │
+         └────┬─────┘
+      ┌───────┼───────┐
+      │       │       │
+      ▼       ▼       ▼
+   ┌──────┐┌──────┐┌──────┐
+   │      ││      ││      │
+   │ PC A ││ PC B ││ PC C │
+   │      ││      ││      │
+   └──────┘└──────┘└──────┘
+
+
+--> upsides:
+
+a- less cables
+b- scalable, only add a pc and connect to the switch
+
+
+--> downside
+everything depends on the swithc, if it fails, everything collapses
+
+==================================================================================================
+
+types of casting
+
+casting == tramnsmitting data over the network
+
+1- Unicast:    one-to-one
+
+sending data between 2 computers
+either through IP address of MAac address
+==> sending a letter to one specific person!
+
+examples:
+a- 
+instagram private message:
+you <--> person x
+
+
+b- web browsing
+your pc <--> google server
+
+
+c- email
+
+you <---> your boss
+
+d- gaming:
+
+you <--------> friend
+        ez
+
+
+
+2- broadcasting:    one-to-all  |   last IP address
+
+==> mainly used to find a tv to connect to and stuff like that!!
+
+
+YELLING IN A ROOM FULL OF PEOPLE, SO THAT EVERYONE CAN HEAR YOU
+
+a- 
+Your home network - "Who has IP 192.168.1.20?"
+this message gets send to everyone!
+
+phone, pc, printer
+all the devices hear the question
+only the device with the ip address reply!
+
+
+b- Phone: is there a TV I can connect to it
+
+PHONE:
+whho can connect to it
+TV, laptop,  printer
+
+TV replies you can connect to it
+
+
+
+
+
+3- multi cast:      one-to-group
+==> think of it like a whatsapp group
+
+a- talking to a groupshat
+b- server streams a football games to all devies taht are signed up to
+c- online gaming: team voice chat
+4- update the software to any device that has it
+
+
+==>     type of transmission:
+
+1- simplex:    unidirectional
+
+one device sends
+one device revieces (doesnt send back)
+
+
+spotify -> listener
+youtube -> user
+radio_waves   -> radio | TV
+
+
+2- half-duplex mode
+
+data can flow both ways, but only one direction at a time
+
+walkie-talkie: 
+    a to b
+    b to a
+    b can only sends back data, after it reecvies from a
+    it can send data at the sane tune
+
+
+
+3- full duplex mode:
+
+current internet
+talking over the phone!
+
+==================================================================================================
+
+types of networks:
+
+types of networks depends on the geographical area or the host role
+
+1- georaphical areas:
+
+a-      PAN
+
+smallest geographical area, 10-15m 
+for ex: 
+    using bluetooth to send data over the 2 sons
+    using usb cable to send small data
+
+
+b- LAN
+
+local area network
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
