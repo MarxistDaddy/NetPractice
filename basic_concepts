@@ -369,6 +369,156 @@ for ex:
 b- LAN
 
 local area network
+used to be called ethernetLAN
+
+cyber cafe to play counter strike back in the day
+
+LAN == computers connecting to a switch!
+
+c- Wlan
+
+wireless local are network
+
+connecting phone with a TV
+sending a file from a computer to a printer
+BY USING WIFI!
+
+d- CAN
+
+campus area netowrk
+
+this is like having multiple LAN connectned with other
+like in the campus, every campus has its own LAN
+1337 got its own LAN, CC got its own LAN
+
+all these networks are connected with each other to formulate CAN
+campus area network
+
+
+e- MAN
+metropilitan arean network
+
+
+say that we have a huge company that has multiple site in the same city
+these sites are connected with other through a fiber optic cable
+
+building A              building B          building C
+    switch                  switch              switch
+                        
+                the swtich are conencted with each other through a fiber optic acble
+                to formulate the MAN
+
+buildings:  contain multiple devices
+devices:    connected with the switches
+switches:   connected with other switch through a fiber cable!
+
+examples:
+all bankds in the same city
+hospitals
+city surrveilance
+
+
+f- SAN
+storage area network
+
+a specialized high speed network just for storage (servers accessign storage devices)
+
+    server (web)                server (email)          server (app)
+
+                                all servers are connected to san switch
+                                SAN SWITCH <-- high sped fiber
+            
+    storage array A             storage array b         storage array c
+
+==> it goes like this
+
+server 
+san switch
+storage:    disk array
+
+the san switch conencts between the server abd the storag
+
+
+==> used to reach data fast, and for scalipity
+==> masar needs to scale the data!
+
+
+
+WAN:
+    wide area network:      this is the internet!
+
+        
+==================================================================================================
+
+difference between workgroup and clinet/server
+
+                                host role:  
+peer to peer                                                client/server
+
+first:
+whats a client?
+client is what request a service
+PC or phone sending anything to the server
+
+whats a server?
+a pc thats waits for request to provde service
+
+
+1- workgroup    | peer-to-peer
+ALL computers are equal
+no central authority
+each device manages its own resources and secutrity
+
+downside: 
+you need to update all computers so that it can work!
+
+
+examples:
+your home network:
+everyone's PC has their own login
+you share a printer from one PC
+
+smal coffee shop:
+3 computers for the staff
+each has its own files
+no central server
+
+
+
+2- client/server
+
+used in big companies
+
+server is a computer that has unique features 
+this computer provides services to other computers
+
+server == centralized administration
+sudo kind of!
+you can update all computers from the same server
+and so on!
+
+network admin or sys admin! omi is the one responsible for the server
+
+
+==================================================================================================
+
+OSI is a compay that set up this OSI network model!
+
+4- transport layer
+
+responsible for transforming data
+
+
+
+layer 3 - determine protocol:
+
+TCP AND UDP
+
+
+
+
+
+
 
 
 

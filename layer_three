@@ -1,0 +1,105 @@
+ip address | subnet mask
+
+IP == internet protocol
+IP == set of rules 
+
+IP address is made of 4 octal sperateed by a dot
+
+IP address consists of 2
+1- network address  and 2- host address
+
+
+how does the device know which part of the IP belongs to network and which part to the host
+it uses subnet mask
+
+subnet mask:
+    it a number consists of 32 bit just like the IP address
+    and comes always with the IP address
+
+    you cant have an IP withtout a subnet mask
+
+    255.255.255.0
+
+    255 == this part of the ip address belongs to the network
+    0 == belong to the device Address
+
+
+
+IP address has 4 classes:
+you can identiy which class the IP addess belong to just by the first octal
+first octal == deteremines the IP class
+
+class A:
+    the first octal of the IP address ranges between 1 to 126
+    1__126.x.x.x
+
+    and the subnet mask of this is:
+
+    255.0.0.0
+
+    the first octal belongs to the network 
+    and the rest belongs to the host!!
+
+==> this is useful when we have a number of networks lost
+==> yet so many devices
+
+
+class B:
+    the first octal ranges between 128-191
+
+    and the subnet of this is:
+
+    255.255.0.0
+    
+    the first 2 octals belong to the network and the other 2 to the host!
+
+
+class C:
+
+    the first octal ranges between 192-223
+     
+     and its subnet mask is like this:
+
+     255.255.255.0
+
+     the first 3 octals belong to the networ and the rest to the host!
+
+==> class C is so common in home noetworks and smalll companies!
+==> the purpose of this class is to get as many networks as possible and small number of devices
+==> as you can figure out, there are so many networks in the word! yet a small range of devices connected to each network!
+
+
+
+class D:
+    the first octal ranges betweem 124-239
+
+    and the subnet of this:
+
+    255.255.255.255
+
+    the  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    ping 127.0.01
+    understand this trickk
+
+    this loopback is used for trouble shooting   
+
+
