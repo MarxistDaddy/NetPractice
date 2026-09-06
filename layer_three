@@ -79,6 +79,133 @@ class D:
 
     the  
 
+==> this class if for multi casting (sending daa to multiple devices at once, like video streaming)
+
+
+
+class E:
+    first octal ranges from 240 to 255
+
+
+how does classes work?
+
+==> the binary of the byte is unsigned byte!
+
+class A:    1-126
+class B:    128-191
+class C:    192-223
+class D:    224-239
+class E:    240-255
+
+lets see examples:
+
+10.50.12.3
+==> the first octal starts with 10, so this means that this IP belongs to class A
+
+172.25.100.4
+==> 172 is between 128-191, this means that the IP address belongs to class B
+    and that the first 2 octals belong to the network
+
+
+192.168.1.50
+==> the first octal is betwrrn 192-223, so this ip belongs to class C
+    and the first 3 octals belongs to the network!
+
+==> TRICK!!
+you notice that all the IP addresses are start exaactly where they end
+
+191_class B  | 192_class_C    |   191_102
+223_class B  | 224_class_D    |   223_224
+239_class D  | 240_class_E    |   239_240
+
+--> but for class A and B thats not the case:
+
+126_class_A  | 128_class_B    |   126_128 | 127 is missing
+this is because 127 is reserved for local host!
+your computer talking to itsself
+if you ping 127.0.01, you are saying hello to your own machine!!
+
+localhost:
+1- allowd you to tests application locally before deployment
+2- ensure safe testing of sensistive application, bcs it never leaves your machine
+3- good for networking efficiency! since its local and not over the internet
+    this allows for fast processing of requests without exeternal routing
+
+problems with the classes:
+
+The rich got huge chunks:
+
+MIT got 18.0.0.0
+us government got 11.0.0.0
+
+each class A ip had 16..7 million IPs each
+
+this howver resulted to this problem:
+if you were a meduim sized company with 5k computers, you couldnt get a class A
+only 126 were available and they were taken
+you coudndt get class C, too small only 254IP addresses available
+
+you were forced to take a class B. which gave you 65k ip 
+even tho you only needed 5k. so 60k Ips went to waste because nobody else could use it
+
+
+-----------------
+
+this is exacalty why:
+
+1- we created provate IPs 192.168.x.x, 10.x.x.x, so millions of homes could reuses the same numbers
+2- created NAT, so your home router could hide all your private devices behind one single  publice IP
+3- we abondoned the class system. entirely in the 1990s and switched to CIDR
+classess addressing, which lets chop up IP ranges into any size we want, no one wasting 60,000ips
+
+
+==========
+
+whats the difference between private and public IPs:
+
+1-  public:
+a unique one of a kind IP address that exists on the global internet
+no 2 devices on earth can thavet he same public IP at the same time
+
+if your public IP is 11.6.7.8 == class A
+that means the neigborhood 11.x.x.x on the pucblic internt
+
+ony 126 neugborhood of this kind that exists
+
+2-  peiravte:
+IP addresses that are reserved and forbidden from being used on the public internet
+your home router hands them out to your phome, laptio and tv automatically
+
+the reserved ranges: the internet creatores set aside specific ranges inside each class just for pirave use
+
+class A: 10.0.0.0 to 10.255.255.255
+class B: 172.16.0.0 to 172.31.255.255
+class C: 192.168.0.0 to 192.168.255.255
+
+these numbers do no exiss on the public internet
+if a router on the internet sees a letter addressed to 192.168.1.5
+it throws it i the trash
+because 192.168.1.5 could be your laptop, your neighbors laptop ad a laptio in tokyo
+all at the same time, its meangineless out there
+
+
+3-  how do they work together (the magic of NAT)
+how does your private laptop 192.168.1.1 talk to google if IP are bannned form the internet
+
+your router does a magic trick called NAT
+heres how step by step:
+
+a- you type google.com into your laptop (192.168.1.5)
+b- your laptop sends a request to your router, saying "please send this to google for me"
+c- your router rips the 192/168/1/1 and replaces it with tis own public IP 
+    say: 50.57.200.10, which your isp rented to you
+d- google gets the request from 50.5.7.200.10, and sends the google hopepage back to that addrss
+e- you routers receive it, remembers: "this was for the laptop at 5"
+puts the private back on, and hands it to your laptop
+
+=============
+
+back to classes and how to use them the IP addresses:
 
 
 
@@ -97,9 +224,36 @@ class D:
 
 
 
-    ping 127.0.01
-    understand this trickk
 
-    this loopback is used for trouble shooting   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
