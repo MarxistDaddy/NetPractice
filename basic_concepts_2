@@ -1,0 +1,49 @@
+MAC address:
+
+every device has to have a network inerface card, which is a card that we use to connect to with it with a cable to get the internet
+
+used to renslate signsla to binary and vice versa
+
+every internface card comes with a mac address
+mac address conssits of 6 octal thats in hexa decimal
+
+===========
+
+DNS:
+
+translate domain names to ip addresses
+
+DNS servers:
+servers are computers with high computential poiwers
+
+
+================
+
+
+DHCP:
+
+static IP:
+static IP is about setting the IP address of every device manually!
+you need to make sure that each device has its own ip address!
+subnest mask and default getway
+
+==> this useful to use if you are in a nat wtih a small number of ip addresses
+
+dynamic IP:
+    ifyou are in a network that has like 200 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

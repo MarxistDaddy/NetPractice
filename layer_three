@@ -202,11 +202,26 @@ c- your router rips the 192/168/1/1 and replaces it with tis own public IP
 d- google gets the request from 50.5.7.200.10, and sends the google hopepage back to that addrss
 e- you routers receive it, remembers: "this was for the laptop at 5"
 puts the private back on, and hands it to your laptop
+                                            ------
+when you go the telecome to get the wifi
+telecom give the router a public ip address
+the ip address of the router shoudl be unique!
+the router has a service called DHCP, which provides private IPs to the the devices
+NAT: internat addresses translatuin
+takes the private IP and translate to the public IP of the router
+==> despite this trick, we still have to develop IPV6
+ipv6 is made of 8 bytes instead of 4
+and is made of hexa decimal, instead of binary
+
+
+
+
+
 
 =============
 
 back to classes and how to use them the IP addresses:
-
+network and broadcast addresses
 
 
 
