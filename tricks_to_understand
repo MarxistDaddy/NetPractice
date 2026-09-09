@@ -1,0 +1,48 @@
+how does tor works
+that pedo who used internet on the fucking plane
+4chan
+that killer who got exposed by looking at the ip of the time where he created accounts in his office
+configure static network for my pc in cluster
+P2P
+blockchain!
+
+
+-==================================================================================
+
+Why Static IPs are Mandatory for Clusters
+Here are the 4 big technical reasons, in plain English:
+
+1. Configuration Files are Hard-Coded
+In a cluster, the computers don't find each other by shouting "Hey, where are you?" (broadcasts). Instead, they use configuration files that literally list the IP addresses of all the other computers.
+
+For example, a config file might say:
+
+"The boss computer is at 10.0.0.10. The backup computer is at 10.0.0.11. The worker computer is at 10.0.0.12."
+
+If 10.0.0.10 suddenly changed to 10.0.0.50 because DHCP gave it a new lease, the other computers wouldn't know where the boss went. The cluster would fall apart.
+
+2. Databases and "Locking" Mechanisms
+Many clusters use a "leader-follower" system (like a president and vice presidents).
+
+One computer is the Leader (it has IP 10.0.0.10).
+
+All the others check in with the Leader.
+
+If the Leader's IP changed, the followers would be lost. They would sit there going: "Where did the boss go? I can't find 10.0.0.10 anymore!" Static IPs guarantee the Leader is always in the exact same spot.
+
+3. Security & Firewall Rules
+Network administrators are very strict about security. They write firewall rules that say:
+
+"Only allow incoming connections from 10.0.0.10, 10.0.0.11, and 10.0.0.12."
+
+If one of those computers got a new dynamic IP (say 10.0.0.99), the firewall would block it completely. The computer would be stranded—it couldn't talk to anyone!
+
+4. DNS & Hostnames
+Even if your cluster uses names like node1.mycluster.local instead of IPs, those names are really just nicknames for IP addresses.
+
+Behind the scenes, node1 translates to 10.0.0.10.
+
+If 10.0.0.10 changes, node1 now points to the wrong computer. The whole naming system breaks.
+
+
+-==================================================================================
