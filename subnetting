@@ -1,0 +1,183 @@
+network address:
+
+if we have a network of class C, this means that the subnet mask of this class is /24
+255.255.25.0
+
+==> since we only have 255 addresses that are possible, from 0-255, we need to remove 2 addresses
+
+1- network: x.x.x.0    ==> this for the network, this is what we use to identify our network
+
+2- broadcast: x.x.x.255 ==> this is for the broadcast, this is what we use to identify the broadcast
+
+network == to identify which netword the device is at
+broadcast == to send a message to all the devices that are connected to the network!
+
+==> so the valid addresses that I can use, are between 1-254
+
+==================================================================================
+
+IP address:
+
+class A: network   |   host        |   host       |   host
+class B: network   |   network     |   host       |   host
+class C: network   |   network     |   network    |   host
+
+class D:    MUltiCast
+
+class E:    research    |   reserved only for expiremetn
+
+
+network layer: layer three of the network
+
+has 2 jobs:
+
+a- logical addressing: IP addressing
+b- routing: choosing the best adddress
+
+
+
+look at this:
+
+
+  PC1 ---+                 +--- ROUTER ---+                 +--- PC3
+         |                 |              |                 |
+  PC2 ---+--- SWITCH A ----+  (Gateway)   +---- SWITCH B ---+--- PC4
+                           |              |                 
+                           +---(Internet)--+                 
+
+
+  [SIDE A]               [THE ROUTER]                    [SIDE B]
+ network 1                                              network 2
+ 192.168.1.0         192.168.1.1 / 192.168.2.1         192.168.2.0
+
+network 1: 196.168.1.0 --> 0 of last octal is for hosts
+network 2: 196.168.2.0 --> 0 of last octal is for hosts
+
+==> you can see that we only changes the numbers of the first 3 octals, which are reserved for network addresses
+
+so the submask of this address is 196.168.1.0/24    ==> 255.255.255.0 or /24
+
+each class and its network and broadcast addresses:
+
+                             MASK               NETWORK              BROADCAST
+class A: 255.0.0.0      |    10.x.x.x       |   10.0.0.0        |   10.255.255.255
+class B: 255.255.0.0    |    128.16.x.x     |   128.10.0.0      |   128.10.255.255
+class C: 255.255.255.0  |    196.168.1.x    |   196.168.1.0     |   196.168.1.255
+
+AVAILABLE RANGES
+class A:    10.0.0.1
+class B:    128.16.0.1
+class C:    196.168.1.1
+
+==> they all start 1 at the last byte!
+
+
+====================================================================================
+
+Subnetting 1!
+
+Slets say that we have a company that wants to buy some addresse:
+if the company is huge, it can buy either class A or B
+
+it can also buy a class C address if its a small company
+if it opted for class C, it has 255 available addresses!
+eventho the company opted for class C, it still wasted too many addresses!
+
+lets understand how:
+
+say that we have 2 routers connected with each other via a cable
+
+
+                            R1 <--------------------------------> R2
+when I have 2 routers connected with each otehr via a single cable, this called 
+point-to-point neterwork                    
+
+the network is now connected phsyically
+---------------------------------------
+
+now we need to set the network on the level of software. this means lets set the ip addresses
+
+since we have class C
+its gonna like this:    196.168.1.0/24  
+this indicates that only the last octal is avaialbel for our hosts: range 256-2
+
+
+--> we know also that we mostly give IP addresses to routers, and not devices
+so here we have 2 routers: R1 and R2
+
+R1: 196.168.1.1
+R2: 196.168.1.2
+
+==> we only utulized 2 IP address, and the rest of IP addreses, went to waste!
+
+
+---------------------------------------
+
+say that a compnay has 3k employees, this means 3k devices
+obivoulsy it cant use the class C, as its too small: range 1-254
+
+the solution is class B
+B class is too large for 3k ip addresses, so a lot of addreses went to waste!!
+
+65k-3K == 62k wasted ip addresseso!
+
+---------------------------------------
+
+
+==> the solution of this IP wasting is subnetting
+
+if a company has 3k devicees, it will get a IP address with only 3k avaialble addresses
+if a company has 500 devicees, it will get a IP address with only 500 avaialble addresses
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
