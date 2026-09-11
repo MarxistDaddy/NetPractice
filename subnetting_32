@@ -1,0 +1,114 @@
+subnetting:
+
+increment is the range we get for each bit turned on in the subnet mask:
+
+1000 0000 → 128
+1100 0000 → 64
+1110 0000 → 32
+1111 0000 → 16
+1111 1000 → 8
+1111 1100 → 4
+1111 1110 → 2
+1111 1111 → 1
+
+
+how to find the range of increment of every IP address:
+
+==>        1: 
+we look at the submask:
+lets take these 2 examples, and try to find the increment range of these 2 masks
+
+
+A- 255.255.255.252
+
+1- take the first octal 255 and take away the alst octal of the mask
+the first octal is always 256, because 0 is part of the subnet!
+
+256 - 252 == 4
+
+the increment == 4
+
+==>         2:
+we look at the corresponding IP address of the submask
+say that our IP is like this:
+
+192.168.1.10
+
+
+so now:
+
+a- we found the increment through the mask,which is 4
+b- find the range in which this 4 incremnet falls at
+
+--> how to find network and boradcasst IP address range in this IP addrss?
+
+we need to find the range in which 10 falls at
+
+so:
+
+0 + 4 = 4
+4 + 4 = 8
+8 + 4 = 12
+
+10 falls between 8 and 12
+
+so the network is       8
+and the broadcast is    11
+--> why 11?
+cause 8, 9, 10, 11 --> 4 possible addresses! 8 network and 11 broadcast
+12 is the network of the next 4 cinremetn
+
+========================================================================
+
+find the subnet of this 
+
+
+255.255.255.224
+192.168.56.222        
+
+1- find the increment range
+256 - 224 == 32
+
+2- find the IP range
+
+224 is bigger than 222
+so we need to take away the 32 from 224
+
+224 - 32 == 192
+
+192 == network
+223 == boradcast
+
+
+the possible IP that we have for this network is 32, and it ranges between 192-223
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

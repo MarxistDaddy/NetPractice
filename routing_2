@@ -1,0 +1,291 @@
+how to use the routing:
+
+lets understand what problem does the routing table solve
+
+see this example:
+
+NETWORK A                         NETWORK B
+
+PC A                              PC B
+192.168.1.10                      192.168.2.20
+     │                                  │
+     │                                  │
+     └────── Router ────────────────────┘
+             │
+       192.168.1.1
+       192.168.2.1
+
+
+PA wants to send data to PB
+
+1-
+it looks if PB is in its network!
+its not
+
+2- 
+it has now to send the data outside its network
+
+=================================================
+whats the difference between an interface and a network
+
+Network A: 192.168.1.0/24
+                    │
+                    │
+              ┌─────┴─────┐
+              │   Router  │
+              └─────┬─────┘
+                    │
+                    │
+Network B: 192.168.2.0/24
+
+here the router is connected to 2 networks!
+
+whats a network?
+a network is a gourp of IP adddresses, this is what we subnet!
+
+
+this router has only 2 interfaces/ports
+
+whats an interface?
+a connection between the device, router, and an IP address (network/range of addresses)
+
+
+
+=================================================
+
+how does sending data outside the network work?
+
+1-
+PA sends the data to the gateway
+PA has been configured with default gateway: 192.168.1.1
+
+
+2- 
+careate the packet
+the packet, the wrapped data:
+
+        ---------
+Source IP:      192.168.1.10
+Destination IP: 192.168.2.20
+        ---------
+
+notice that the packet only contains the source IP, which is PA ip address, and destination, which is PB ip address!
+
+3- 
+sending the packet to the router
+
+router: has a routing table
+
+routing table:
+
+destination             |       gateway
+---------------------------------------
+where the packets       |   the next router to send
+needs to go             |   the data to
+usually the network     |
+trying to reach         |
+
+
+
+destination:    the network im trying to reach
+gateway:        the next router to send the packet to
+=======================================================
+
+
+now that we learned the differnce between the netowrk and interface in routing
+
+lets underatand the routing table in relation to these 2 concepts:
+
+
+destination:  the network I want to reach
+
+
+
+===============================================================================================================================================================
+
+summary of ervtyhing:
+
+1- IP address vs network
+
+say we have acomputer:
+PC A = 192.168.1.10/24
+
+/24 means:
+network == 192.168.1.0/24
+
+the network represnets the range of IP addresses thats available
+this means the last octal if reserved for the hosts ip addresses which ranges from 0-255
+something like this:
+
+192.168.1.0     = network address
+
+192.168.1.1     = possible host
+192.168.1.10    = PC A
+192.168.1.254  = possible host
+
+192.168.1.255  = broadcast
+
+IP address is a particular device
+
+2- subnet mask and increment:
+
+subnet explains the ranges of IP addrsses that are available in a given network!
+
+255.255.255.224
+256-224 == 32
+
+therefor the increment is 32
+the network has a range of 32 devices
+
+to find which range is the exact one, i need find the ip address
+this means
+1- network has 32 avaialble ip addresses
+2- any given ip address, will indicate where the range starts and ends
+
+3- interface:
+interface is a connection point on a device
+
+imagine that we have a router with 2 interfaces:
+each interface will get its own ip address | yes interfaces also get an ip address
+
+router:
+    -->    Interface 1 → 192.168.1.1
+    -->    Interface 2 → 192.168.2.1
+the objective of the router is to create the internet WHERE I FUCKING LIVE!
+
+
+192.168.1.0/24  |   network. aka range of ip addreses
+       │
+       │
+ 192.168.1.1    | interface ip address
+  Interface 1
+       │
+    ROUTER      | connects to the 2 networks together to create the internet WHERE I FCKIG LIVE, need to kill myslef
+       │
+  Interface 2
+ 192.168.2.1    | interface IP address
+       │
+       │
+192.168.2.0/24  |   network. aka range of ip addreses
+
+
+interface == connection point
+ip address == address assigned to the interface
+
+
+4- the overall complex biology system of the internet
+
+NETWORK A                         NETWORK B
+
+PC A                              PC B
+192.168.1.10                      192.168.2.20
+     │                                  │
+     │                                  │
+     └────── Router ────────────────────┘
+             │
+       192.168.1.1
+       192.168.2.1
+
+
+the 2 networks are:
+Network A = 192.168.1.0/24
+Network B = 192.168.2.0/24
+
+
+the ip of the router's 2 interfaces:
+Interface A = 192.168.1.1
+Interface B = 192.168.2.1
+
+the ip of devices int he entwork:
+PC A = 192.168.1.10
+PC B = 192.168.2.20
+
+
+5- the evolutionary mechansim of the routing system that gives birth to the internet jesus christ peace be upon him!
+
+PC A wants to send to PC B
+so PC AA wants to: 192.168.1.10 → 192.168.2.20
+
+a- pc a creates the packet:
+        
+        ------------------------------
+        |Source IP:      192.168.1.10
+        |Destination IP: 192.168.2.20
+        ------------------------------
+
+PC A checkings if PC B is in the local network through the switch power
+it doesnt!
+
+so we need to rely on the router to send thie packet to PC B that dwells in a different network!
+
+b- PC A says to itself, I need to send this to my gateway
+
+
+6- GATEWAY: portals to the internet that provided a fertile land for the cucks to thrive, aka, reddit
+PC A's default gateway is the interface thats directly connected to it
+
+interface has ip address of 196.168.1.1
+
+so 
+gateway     == the interface thats conencted to the PCA
+destination == the ip address of the device: 196.168.1.20
+
+==> this is how we set up our routing table!
+
+===============================================================================================================================
+
+
+lets understand the routing table in depth:
+
+destination == 0.0.0.0/0    ==> means any destination!
+any IPv4 ip address
+if I dont have any specific rout send to it to 0.0.0.0/0
+which is default
+
+default == 0.0.0.0/0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
