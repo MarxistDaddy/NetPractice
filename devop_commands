@@ -1,0 +1,97 @@
+rank 1 | absolutely know:
+
+ip a
+ip link
+ip route
+ip route get <destination>
+
+ping <host>
+
+ss -tuln
+ss -ltnp
+
+curl <URL>
+
+dig <domain>
+
+ssh user@host
+
+
+----------------------------------
+
+rank 2 | very useful:
+
+traceroute <host>
+tracepath <host>
+
+nc -vz <host> <port>
+
+ip neigh
+
+hostname
+hostnamectl
+
+nmap <host>
+
+----------------------------------
+
+rank 3 | deeper debugging:
+
+tcpdump
+nft
+iptables
+
+
+---------------------------------
+mental model: i need to develop:
+
+1. Do I have an interface?
+        ↓
+     ip a
+
+2. Do I have the correct IP/subnet?
+        ↓
+     ip a
+
+3. Do I have a route?
+        ↓
+     ip route
+
+4. Which route will be used?
+        ↓
+     ip route get <destination>
+
+5. Can I reach the destination?
+        ↓
+     ping <destination>
+
+6. Is DNS resolving correctly?
+        ↓
+     dig <domain>
+
+7. Is the destination port reachable?
+        ↓
+     nc -vz <host> <port>
+
+8. Is my application listening?
+        ↓
+     ss -ltnp
+
+9. Does the HTTP service actually respond?
+        ↓
+     curl -v <URL>
+
+10. Where exactly are packets going?
+        ↓
+     traceroute / tcpdump
+
+
+
+If you master:
+-->     ip, ss, curl, dig, ping, nc, tcpdump, and ssh
+
+you'll have a very strong practical command-line networking toolkit.
+
+
+
+
