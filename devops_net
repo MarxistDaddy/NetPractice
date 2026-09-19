@@ -1,0 +1,114 @@
+network segmentation:
+
+if a hacker is trying to break into your server, you defy it thro networki segmantetion
+you basically create 3 networks out of 1 through subnetting
+
+but heres the problem, if a network has 3 services that were in the same network
+how do they now communicate with each other, noe that we have split them!
+
+1- network:
+web, database, paymetn service
+
+three networks:
+each service has its own network range!
+
+==> router is the one that determines the path
+
+------------------
+
+firewalls:
+check every piece of traffic
+1- host firewalls!
+one accepts connections on port 3365
+
+2- network firewall
+this sits betweeen networks
+
+
+secure Zones
+
+------------------
+
+as your server grows bigger, your server needs internet
+
+Private addresses, work inside your network, they cannot work outside of yur network
+
+NAT allows to share one public address
+NAT we create multiple private ip addresses
+
+
+15 servse can share only on public address thrugh NAT
+
+--> as the our service grow, mainting these services is expensive and slow!
+--> thus, we move to cloud!
+
+in cloud, we have to predict the capacity months in advance
+buy servers
+install them
+maintain them
+
+cloud == renting computing resources instead of buying them
+someone else manages the hardware and we can increase or decrease capacity
+in minutes instead of weeks
+
+the networking concepts do not change in cloud
+we still need:
+IP addresses
+Ports
+subnets
+routing
+firewalls
+NAT
+
+in cloud, we create the VPC. virtual private cloud!
+this is our own private section of the cloud provides's network
+this is like renting an apparenting in a huge building, other aparetments belong to differnet companies
+
+inside our VPC, we create subnets just like before
+inside the VPC, we have different servers sections
+we connect the network that need inetenret with public IP, using internet gatway
+
+each subnet, has its own routing table that decides where the data goes!
+for private subnet, we use the NAT gateway
+
+---------------------------------------------
+
+docker:
+
+container with docker
+
+as our project grows, our app has become more complex
+more services
+more deppendencies
+more things to install and configure
+
+we also move to microservice architecture
+
+to make our application more scalable
+and managing our deplyoment becomes more and more complex!
+this is when we run into works on developtemen laptop but not on the production server
+
+--> container steps in:
+code, runtime, libraries and settings contains all o fhtese into one protable package!
+we use docker to containiraze all of our services: the code, libraries and settings
+into one single container
+
+we can run all of these identicaly all the etime
+
+==> docker uses bridge network!
+==> private network that exists only on that server
+==> all the containers connected to the same bridge network can communicate with each other using just container names
+==> each container has its own private network!
+
+==> how does the server reaches the conatiner tahts respinsible for payment! 
+
+
+
+
+
+
+
+
+
+
+

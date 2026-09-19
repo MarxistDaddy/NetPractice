@@ -246,6 +246,200 @@ default == 0.0.0.0/0
 
 
 
+whats a routing table?
+
+
+routers rout data by using routing tbale
+routing table is a file taht contains set of rules that shows information on what path a data can take
+
+
+3 types of routing tables:
+
+1- directly connected
+
+say that we have 2 neworks connecting directly to a single router!
+
+N1   <-----  -R-  ----> N2
+
+
+the router in this case has 2 interfaces!
+each one has an ip address and is connected to the network
+
+say that N1 has an ip address of 196.168.1.0/24
+this means that the 196.168.1.0 is network ip and 196.168.1.255 is broadcast ip of the network!
+
+the interface router thats connected to this network has to have an ip address thats withting this range
+
+
+Each router interface belongs to the network it is physically/logically connected to
+so its IP address must be in that network's subnet.
+
+so this means that routing interface takes away an ip address from the range of addresses avaialble in the network thats connected to
+
+like this:
+
+192.168.1.0       Network address     
+192.168.1.1       Router interface    |  used by router
+192.168.1.2       Host                
+192.168.1.3       Host                
+...
+192.168.1.254     Host                
+192.168.1.255     Broadcast           
+
+--------------------------------------------------
+
+now!
+
+lets say that we have a router thats connected to another router
+R1 <--------->  R2
+when we have 2 routers conneced with each other
+this means taht the 2 are a separate network!
+
+so this network needs its own ip address
+
+--------------------------------------------------
+
+N1 <----R1 -----> N2
+        |
+        |
+        |
+        R2
+        |
+        |
+        N3
+
+==> so here we have 4 networks
+
+N1, N2, N3
+the link between R1 and R2 is considered also a network!
+
+N1: 196.168.1.0/24
+N2: 10.0.0.0/8
+N3: 172.16.1.0/16
+N4: 125.0.0.0/24
+    interface 1: 125.0.0.1
+    interface 2: 125.0.0.2
+
+--------------------------------------------------
+
+whats rout summarization or route aggregation?
+
+we use this technique so that theres less routs in the table!
+
+routing aggre:
+is combining multiple small network into one large routeso you only need one routing table entry!
+
+imagine you have 2 netowrks:
+NA and NB
+NA = 100.113.64.0/18
+NB = 100.113.128.0/18
+
+if I had enough space in the routing table:
+
+Destination          Mask
+100.113.64.0         /18
+100.113.128.0        /18
+
+
+==> but suppose we only have one entry table:
+
+1- 
+/18 is increment of 64
+so the third octal is increment of 64
+0 - 63
+64 - 127
+128 - 191
+192 - 255
+
+for every range in the third octal it gets to use all the possible numbers in the fourth octal
+
+
+2- 
+look at NA:
+network address is 100.113.64.0
+broadcat addres is 100.113.127.255
+
+
+look at NB:
+network address is 100.113.128.0
+broadcat addres is 100.113.191.255
+
+==> as you can see the first network ranges from 64-127
+==> and the second network ranges from 128 to 191
+==> together they expand from 64 all the way to 192
+
+
+3- 
+the goal is to make the network bigger
+the currenet network we have is /18 which is the increment of 64 in the third octal!
+
+to make the network bigger, we make the prefix shorter!
+
+/17 or /16 expands the possible ips we have, therefor make the network bigger!
+
+for example /16, which is 255.255.0.0
+includes the both the 100.113.64.0 and 100.113.128.0
+
+
+------------------
+
+==> Route Aggregation
+
+basic idea:
+Route aggregation combines multiple smaller networks into **one larger network** by using a **shorter prefix.
+
+Example:
+Network A: 196.168.1.0/24
+Network B: 196.168.2.0/24
+
+Both use:
+/24 = 255.255.255.0
+
+To create a larger network, we shorten the prefix:
+/24 → /23 → /22
+
+but we cannot automatically use /23. The networks must fit within the larger network's valid boundary.
+/23:
+255.255.254.0
+
+creates blocks of 2 in the third octet:
+196.168.0.0/23 → .0 – .1
+196.168.2.0/23 → .2 – .3
+
+Therefore:
+196.168.1.0/24 → belongs to 196.168.0.0/23
+196.168.2.0/24 → belongs to 196.168.2.0/23
+
+They cannot both fit into the same `/23`.
+
+So we go one level larger:
+/22 = 255.255.252.0
+
+Now:
+196.168.0.0/22
+
+covers:
+196.168.0.0 → 196.168.3.255
+
+which contains both:
+
+196.168.1.0/24
+196.168.2.0/24
+
+Rule to remember
+
+Shorter prefix → larger network → can potentially aggregate multiple smaller networks.**
+
+But the networks must **fit inside the larger network's boundary**.
+
+
+
+
+
+
+
+
+
 
 
 

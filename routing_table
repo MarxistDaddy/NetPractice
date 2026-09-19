@@ -1,0 +1,53 @@
+routing table
+its just a set of rules that every device use to anser one question:
+    where do i send the data?
+
+
+routing table is the GPS of the data
+
+this is how roughly it works:
+
+1- to reach the store, take the main street
+    to get to 196.168.1.5
+    go out eth0
+
+2- to go anywhere, take the highway
+    to reach anywhere else
+    go out default
+
+
+the columns of structure:
+
+1- destination
+the target network: 196.168.1.2
+
+2- gatway:
+the next-hop router: 196.1.1.5
+
+3- the interface:
+which network card to use: eth0
+
+4- metric:
+cost (lower = prefered) 100
+
+---------------------------
+
+==> this is evrythign that i need to learn
+the three types of routing:
+
+1- directly connected 
+it looks like this: 10.13.4.0/24 dev eth0 --> this network is physically attached to me, talk directly
+
+
+2- indirecty (via gateway)
+
+
+3- the default:
+if nothing matches send it here to the internet
+
+
+
+
+
+
+
