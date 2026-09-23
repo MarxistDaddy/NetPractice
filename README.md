@@ -63,5 +63,5 @@ Networking is one of the most useful skills that you MUST acquire in IT. one mus
 
 as such, take this opportunity to dive deep into networking and get yourself familiar with it.
 
-if you are interesed in a spacialized field such such, DevOps, Web or AI, try to familiarize yourslef with the basic netowrking skills that you are most commonly used in them.
+if you are interesed in a spacialized field such such, DevOps, Web or AI, try to familiarize yourslef with the basic netowrking skills that are commonly used.
 
