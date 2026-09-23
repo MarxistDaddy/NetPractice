@@ -55,7 +55,7 @@ AI was used as a learning tool only.
 
 When there are not enough sources in a given topic, or when the information was not clear or difficult to grasp, AI was used as a learning tool to facillicate learning and break down difficult concepts to smaller ones.
 
-As well as, using it to provide more visual represenations and more exercises for further understand the goals of the project.
+As well as, using it to provide visual represenations and more exercises to further understand the goals of the project.
 
 ### Additional
 
